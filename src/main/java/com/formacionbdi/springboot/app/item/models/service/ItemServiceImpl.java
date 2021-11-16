@@ -19,7 +19,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public List<Item> findAll() {
-		List<Producto> productos = List.of(clienteRest.getForObject("http://localhost:8001/listar", Producto.class));
+		List<Producto> productos = List.of(clienteRest.getForObject("http://localhost:8001/listar", Producto[].class));
 		return productos.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
